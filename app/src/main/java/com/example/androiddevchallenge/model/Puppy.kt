@@ -45,7 +45,7 @@ val puppy = listOf(
         id = 5L,
         name = "Goldy",
         imageUrl = "https://images.unsplash.com/photo-1583318444357-e54d484ba7e3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1789&q=80",
-        age = 7000,
+        age = 7,
         detail = "Goldy is a frenchie, The French Bulldog is a breed of domestic dog, bred to be companion dogs. The breed is the result of a cross between Toy Bulldogs imported from England, and local ratters in Paris, France, in the 1800s. They are stocky, compact dogs with a friendly, mild-mannered temperament."
     ),
     Puppy(
