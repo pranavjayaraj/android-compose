@@ -15,14 +15,19 @@
  */
 package com.example.androiddevchallenge
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.contextaware.ContextAware
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.content.ContextCompat.startActivity
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
@@ -40,8 +45,17 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MyApp() {
     Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+        val context = LocalContext.current
+        Feed(onPuppyClick = {
+            moveToDetails(it, context)
+        })
     }
+}
+
+fun moveToDetails(id: Long, context: Context) {
+    val intent = Intent(context, PuppyDetailActivity::class.java)
+    intent.putExtra("id", id)
+    startActivity(context, intent, null)
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
