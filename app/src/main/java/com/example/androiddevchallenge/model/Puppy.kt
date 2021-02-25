@@ -26,7 +26,6 @@ data class Puppy(
     val detail: String = ""
 )
 
-
 val puppy = listOf(
     Puppy(
         id = 1L,

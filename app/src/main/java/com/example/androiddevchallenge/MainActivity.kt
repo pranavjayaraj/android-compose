@@ -44,9 +44,11 @@ class MainActivity : AppCompatActivity() {
 fun MyApp() {
     Surface(color = MaterialTheme.colors.background) {
         val context = LocalContext.current
-        Feed(onPuppyClick = {
-            moveToDetails(it, context)
-        })
+        Feed(
+            onPuppyClick = {
+                moveToDetails(it, context)
+            }
+        )
     }
 }
 
