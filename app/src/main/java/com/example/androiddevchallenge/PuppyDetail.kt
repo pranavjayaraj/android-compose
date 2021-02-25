@@ -4,15 +4,19 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -37,15 +41,14 @@ class PuppyDetailActivity : AppCompatActivity() {
         val id = intent.getLongExtra("id", 0)
         setContent {
             MyTheme {
-                PuppyDetail(puppyId = id, upPress = { /*TODO*/ })
+                PuppyDetail(puppyId = id)
             }
         }
     }
 
     @Composable
     fun PuppyDetail(
-        puppyId: Long,
-        upPress: () -> Unit
+        puppyId: Long
     ) {
         val puppy = remember(puppyId) { PuppyRepo.getPuppy(puppyId) }
 
@@ -68,20 +71,6 @@ class PuppyDetailActivity : AppCompatActivity() {
     }
 
 
-    @Composable
-    private fun Up(upPress: () -> Unit) {
-        IconButton(
-            onClick = upPress,
-            modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 10.dp)
-                .size(36.dp)
-        ) {
-            Icon(
-                imageVector = Icons.Outlined.ArrowBack,
-                contentDescription = "Back"
-            )
-        }
-    }
 
     @Composable
     private fun Body(
@@ -144,7 +133,7 @@ class PuppyDetailActivity : AppCompatActivity() {
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = "${puppy.age.toString()} years old",
+                text = "${puppy.age} years old",
                 fontSize = 20.sp,
                 style = MaterialTheme.typography.h6,
                 modifier = HzPadding
