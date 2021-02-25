@@ -10,8 +10,7 @@ This app is developed for the android developer challenge 2021
 
 
 ## :bulb: Motivation and Context
-<!--- Optionally point readers to interesting parts of your submission. -->
-<!--- What are you especially proud of? -->
+This app is motivated from Android jetpack compose.
 
 
 ## :camera_flash: Screenshots
